@@ -1,4 +1,5 @@
 rootProject.name = 'rabbitMQ'
 include 'rabbit-sender'
 include 'rabbit-receiver'
+include 'rabbit-common-library'
 

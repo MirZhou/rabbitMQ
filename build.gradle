@@ -46,6 +46,7 @@ allprojects {
 
 project(":rabbit-sender"){
     dependencies {
+        compile project(":rabbit-common-library")
         compile 'org.springframework.boot:spring-boot-starter-amqp'
         compile 'org.springframework.boot:spring-boot-devtools'
         
@@ -55,6 +56,7 @@ project(":rabbit-sender"){
 
 project(":rabbit-receiver"){
     dependencies {
+        compile project(":rabbit-common-library")
         compile 'org.springframework.boot:spring-boot-starter-amqp'
         compile 'org.springframework.boot:spring-boot-devtools'
 
