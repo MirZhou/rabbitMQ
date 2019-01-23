@@ -1,5 +1,6 @@
 package cn.mir.sender.demo;
 
+import cn.mir.rabbitmq.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -32,6 +33,16 @@ public class Sender {
     public void send() {
         this.logger.info("发送消息");
 
-        this.amqpTemplate.convertAndSend("mir", "Hello World!!! This is a rabbitMQ.");
+        this.amqpTemplate.convertAndSend("queue", "Hello World!!! This is a rabbitMQ.");
+    }
+
+    public void sendUserInformation() {
+        this.logger.info("发送用户信息");
+
+        User user = new User();
+        user.setName("周先生");
+        user.setRemark("这是个高手");
+
+        this.amqpTemplate.convertAndSend("user", user);
     }
 }

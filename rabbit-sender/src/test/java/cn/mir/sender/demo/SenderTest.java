@@ -14,7 +14,12 @@ public class SenderTest {
     private Sender sender;
 
     @Test
-    public void send() {
+    public void testSend() {
         this.sender.send();
+    }
+
+    @Test
+    public void testSendUserInformation() {
+        this.sender.sendUserInformation();
     }
 }

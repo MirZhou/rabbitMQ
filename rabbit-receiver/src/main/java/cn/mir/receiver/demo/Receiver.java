@@ -1,5 +1,6 @@
 package cn.mir.receiver.demo;
 
+import cn.mir.rabbitmq.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -18,8 +19,13 @@ public class Receiver {
      */
     private final Logger logger = LoggerFactory.getLogger(Receiver.class);
 
-    @RabbitListener(queues = {"queue", "mir"})
+    @RabbitListener(queues = "queue")
     public void receiver(String message) {
-        this.logger.debug("Receive: {}", message);
+        this.logger.info("Receive: {}", message);
+    }
+
+    @RabbitListener(queues = "user")
+    public void receiverUser(User user) {
+        this.logger.info("receive user information: {}", user);
     }
 }
